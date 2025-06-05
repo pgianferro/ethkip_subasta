@@ -4,7 +4,39 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "bid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					}
+				],
+				"name": "getBidOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +65,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0x7693521cd2e2a17823437f00a79faaddf8e52648399e1b5dbb26644dbfe2f47c",
+			"keccak256": "0xe988520ff756d519b371609b06bfc2ed8a3abda2c2c96877f0d29a7d85655b4b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0983bd370aa3ecd869dc6d846f5efe7f25033df867719ddc69fc4e9b2e9c057c",
-				"dweb:/ipfs/Qmb7y6xEKT9KJVDy92dVmxnxbfYPTHwrgRATxUuoZtawaK"
+				"bzz-raw://098a8c8fcc49a290a609dc2eb63784f8aa90ee5d15e407c16e50a3f91baa18f3",
+				"dweb:/ipfs/QmXjFyzXyhsVhTWc3xx9ptxbrxCNpfRR6YXZk1t9biEs4J"
 			]
 		}
 	},
