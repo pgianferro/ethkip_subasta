@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Subasta.sol": "Subasta"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Subasta.sol": {
+			"keccak256": "0x94a80fd007f6b12c46aff1ba5248614e7fc5e5e3d78f7800d77bf0df1af74f6f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5723b7f5d74b875e581de59fce92285020d3893200a9f54cf251188af9beefd9",
+				"dweb:/ipfs/QmNP6hQm4gyMQPJoafZ2utQXWqopQs3rKiiddy5qRQMtVd"
+			]
+		}
+	},
+	"version": 1
+}
