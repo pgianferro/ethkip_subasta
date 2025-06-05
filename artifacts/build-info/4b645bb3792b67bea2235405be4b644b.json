@@ -1,5 +1,5 @@
 {
-	"id": "ff8752807785e1f0ea549c012966b1c1",
+	"id": "4b645bb3792b67bea2235405be4b644b",
 	"_format": "hh-sol-build-info-1",
 	"solcVersion": "0.8.30",
 	"solcLongVersion": "0.8.30+commit.73712a01",
@@ -7,7 +7,7 @@
 		"language": "Solidity",
 		"sources": {
 			"Subasta.sol": {
-				"content": "// SPDX-License-Identifier: MIT\npragma solidity >0.8.0;\n\ncontract Subasta {\n    \n}"
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity >0.8.0;\n\ncontract Subasta {\n    //testeo de cambios en github\n}"
 			}
 		},
 		"settings": {
@@ -49,23 +49,23 @@
 						"version": 1
 					},
 					"evm": {
-						"assembly": "    /* \"Subasta.sol\":57:82  contract Subasta {... */\n  mstore(0x40, 0x80)\n  callvalue\n  dup1\n  iszero\n  tag_1\n  jumpi\n  revert(0x00, 0x00)\ntag_1:\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"Subasta.sol\":57:82  contract Subasta {... */\n      mstore(0x40, 0x80)\n      revert(0x00, 0x00)\n\n    auxdata: 0xa2646970667358221220b4fb92486e010c457bae8d3083bd82274adce28da271e15af53f6fc9c53224d964736f6c634300081e0033\n}\n",
+						"assembly": "    /* \"Subasta.sol\":57:111  contract Subasta {... */\n  mstore(0x40, 0x80)\n  callvalue\n  dup1\n  iszero\n  tag_1\n  jumpi\n  revert(0x00, 0x00)\ntag_1:\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"Subasta.sol\":57:111  contract Subasta {... */\n      mstore(0x40, 0x80)\n      revert(0x00, 0x00)\n\n    auxdata: 0xa2646970667358221220997326d2a8b04ac9b4ea363a426239273d90a39141daa7ec5ae0c18824235a7764736f6c634300081e0033\n}\n",
 						"bytecode": {
 							"functionDebugData": {},
 							"generatedSources": [],
 							"linkReferences": {},
-							"object": "6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea2646970667358221220b4fb92486e010c457bae8d3083bd82274adce28da271e15af53f6fc9c53224d964736f6c634300081e0033",
-							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xB4 EXTSTATICCALL SWAP3 BASEFEE PUSH15 0x10C457BAE8D3083BD82274ADCE28D LOG2 PUSH18 0xE15AF53F6FC9C53224D964736F6C63430008 0x1E STOP CALLER ",
-							"sourceMap": "57:25:0:-:0;;;;;;;;;;;;;;;;;;;"
+							"object": "6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea2646970667358221220997326d2a8b04ac9b4ea363a426239273d90a39141daa7ec5ae0c18824235a7764736f6c634300081e0033",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP10 PUSH20 0x26D2A8B04AC9B4EA363A426239273D90A39141DA 0xA7 EOFCREATE 0x5A RJUMP 0xC188 0x24 0x23 GAS PUSH24 0x64736F6C634300081E003300000000000000000000000000 ",
+							"sourceMap": "57:54:0:-:0;;;;;;;;;;;;;;;;;;;"
 						},
 						"deployedBytecode": {
 							"functionDebugData": {},
 							"generatedSources": [],
 							"immutableReferences": {},
 							"linkReferences": {},
-							"object": "60806040525f5ffdfea2646970667358221220b4fb92486e010c457bae8d3083bd82274adce28da271e15af53f6fc9c53224d964736f6c634300081e0033",
-							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xB4 EXTSTATICCALL SWAP3 BASEFEE PUSH15 0x10C457BAE8D3083BD82274ADCE28D LOG2 PUSH18 0xE15AF53F6FC9C53224D964736F6C63430008 0x1E STOP CALLER ",
-							"sourceMap": "57:25:0:-:0;;;;;"
+							"object": "60806040525f5ffdfea2646970667358221220997326d2a8b04ac9b4ea363a426239273d90a39141daa7ec5ae0c18824235a7764736f6c634300081e0033",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP10 PUSH20 0x26D2A8B04AC9B4EA363A426239273D90A39141DA 0xA7 EOFCREATE 0x5A RJUMP 0xC188 0x24 0x23 GAS PUSH24 0x64736F6C634300081E003300000000000000000000000000 ",
+							"sourceMap": "57:54:0:-:0;;;;;"
 						},
 						"gasEstimates": {
 							"creation": {
@@ -78,182 +78,182 @@
 							".code": [
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH",
 									"source": 0,
 									"value": "80"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH",
 									"source": 0,
 									"value": "40"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "MSTORE",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "CALLVALUE",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "DUP1",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "ISZERO",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH [tag]",
 									"source": 0,
 									"value": "1"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "JUMPI",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH",
 									"source": 0,
 									"value": "0"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH",
 									"source": 0,
 									"value": "0"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "REVERT",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "tag",
 									"source": 0,
 									"value": "1"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "JUMPDEST",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "POP",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH #[$]",
 									"source": 0,
 									"value": "0000000000000000000000000000000000000000000000000000000000000000"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "DUP1",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH [$]",
 									"source": 0,
 									"value": "0000000000000000000000000000000000000000000000000000000000000000"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH",
 									"source": 0,
 									"value": "0"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "CODECOPY",
 									"source": 0
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "PUSH",
 									"source": 0,
 									"value": "0"
 								},
 								{
 									"begin": 57,
-									"end": 82,
+									"end": 111,
 									"name": "RETURN",
 									"source": 0
 								}
 							],
 							".data": {
 								"0": {
-									".auxdata": "a2646970667358221220b4fb92486e010c457bae8d3083bd82274adce28da271e15af53f6fc9c53224d964736f6c634300081e0033",
+									".auxdata": "a2646970667358221220997326d2a8b04ac9b4ea363a426239273d90a39141daa7ec5ae0c18824235a7764736f6c634300081e0033",
 									".code": [
 										{
 											"begin": 57,
-											"end": 82,
+											"end": 111,
 											"name": "PUSH",
 											"source": 0,
 											"value": "80"
 										},
 										{
 											"begin": 57,
-											"end": 82,
+											"end": 111,
 											"name": "PUSH",
 											"source": 0,
 											"value": "40"
 										},
 										{
 											"begin": 57,
-											"end": 82,
+											"end": 111,
 											"name": "MSTORE",
 											"source": 0
 										},
 										{
 											"begin": 57,
-											"end": 82,
+											"end": 111,
 											"name": "PUSH",
 											"source": 0,
 											"value": "0"
 										},
 										{
 											"begin": 57,
-											"end": 82,
+											"end": 111,
 											"name": "PUSH",
 											"source": 0,
 											"value": "0"
 										},
 										{
 											"begin": 57,
-											"end": 82,
+											"end": 111,
 											"name": "REVERT",
 											"source": 0
 										}
@@ -267,7 +267,7 @@
 						},
 						"methodIdentifiers": {}
 					},
-					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"Subasta.sol\":\"Subasta\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"Subasta.sol\":{\"keccak256\":\"0x94a80fd007f6b12c46aff1ba5248614e7fc5e5e3d78f7800d77bf0df1af74f6f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5723b7f5d74b875e581de59fce92285020d3893200a9f54cf251188af9beefd9\",\"dweb:/ipfs/QmNP6hQm4gyMQPJoafZ2utQXWqopQs3rKiiddy5qRQMtVd\"]}},\"version\":1}",
+					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"Subasta.sol\":\"Subasta\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"Subasta.sol\":{\"keccak256\":\"0x5a64476c118d4860d327c580100afb7de0660291107cd2851729dd1f7eb6d56c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://424c7de4e9f54fce5748a61f988a5ea954b00fff941217c420f36d4e79fb47cf\",\"dweb:/ipfs/QmaLEmdQehqqAdCU7bDQKsX2XECmm3xYQBdSHCdACnZGPV\"]}},\"version\":1}",
 					"storageLayout": {
 						"storage": [],
 						"types": null
@@ -320,12 +320,12 @@
 							"nodeType": "ContractDefinition",
 							"nodes": [],
 							"scope": 3,
-							"src": "57:25:0",
+							"src": "57:54:0",
 							"usedErrors": [],
 							"usedEvents": []
 						}
 					],
-					"src": "32:50:0"
+					"src": "32:79:0"
 				},
 				"id": 0
 			}
