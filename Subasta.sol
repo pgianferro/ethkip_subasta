@@ -8,7 +8,7 @@ uint public highestBid;
 address public highestBidder;
 uint256 public startTime;
 uint256 public stopTime;
-address payable owner;
+address payable public owner;
 mapping(address => uint) bids;
 
 //Variables de estado para el listado de oferentes y ofertas
@@ -27,7 +27,7 @@ BidInfo[] public bidHistory;
 //Constructor para inicializar las variables de estado
 constructor() {
     startTime = block.timestamp;
-    stopTime = startTime + 7 days;
+    stopTime = startTime + 1 minutes;
     owner = payable(msg.sender);
 }
 
@@ -98,6 +98,10 @@ function refundAll() external payable onlyOwner auctionFinalized {
         }
     }
     emit AuctionEnded();
+}
+
+function getTimeNow() external view returns (uint) {
+    return block.timestamp;
 }
 
 }

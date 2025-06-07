@@ -87,6 +87,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getTimeNow",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "highestBid",
 				"outputs": [
 					{
@@ -104,6 +117,19 @@
 				"outputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
 						"name": "",
 						"type": "address"
 					}
@@ -234,11 +260,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0xa3ba600e07b649b525dd9cd425e910812a0a5076e4cd6042f82b0e8793ed08b0",
+			"keccak256": "0xf5e5c70d8909d847789eea996eb718ca836589324510d8d82327e664000f15b0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://de64d0e74f7413678e880fd65c071377f9e1798153bd8f37b5440a10e1425bac",
-				"dweb:/ipfs/QmVsCoCKuueuq65rqxibDE8dnQg8K7G1yL2D5gPE3wLgqH"
+				"bzz-raw://bfabb8a743be77be217a92a5a6806567a45334484808c87e4415582603bb594a",
+				"dweb:/ipfs/QmdJmdjVFVFKQGrsJP7WfmiNxsTP9PBN6SvqHm7QiEYVbn"
 			]
 		}
 	},
