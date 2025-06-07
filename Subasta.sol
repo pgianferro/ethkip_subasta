@@ -89,7 +89,15 @@ function showFinalWinner() external view auctionFinalized returns (address, uint
 
 //Función para devolver las ofertas a los no ganadores
 function refundAll() external payable onlyOwner auctionFinalized { 
-
+    for(uint i = 0; i < bidHistory.length; ++i) {
+        if(bidHistory[i].bidder != highestBidder) {
+            uint refundAmount = (bidHistory[i].amount) * 98 / 100;
+            //payable(bidHistory[i].bidder).transfer(refundAmount);
+            (bool sent, ) = payable(bidHistory[i].bidder).call{value: refundAmount}("");
+            require(sent, "Refund failed");
+        }
+    }
+    emit AuctionEnded();
 }
 
 }
