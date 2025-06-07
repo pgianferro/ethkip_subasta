@@ -15,6 +15,7 @@ mapping(address => uint) bids;
 struct BidInfo {
     address bidder;
     uint amount;
+    uint time;
 }
 
 //Eventos
@@ -32,19 +33,27 @@ constructor() {
 }
 
 //Modificadores
+//Solo permite que el owner llame a la función
 modifier onlyOwner() {
     require(msg.sender == owner, "Only the owner can call this function.");
     _;
 }
 
+//Chequea que esté activa la Subasta
+modifier auctionActive() {
+    require(block.timestamp >= startTime && block.timestamp <= stopTime, "Bid is not active");
+    _;
+}
+
+//Chequea que esté terminada la Subasta
 modifier auctionFinalized() {
     require(block.timestamp >= stopTime, "The auction is not over yet");
     _;
 }
 
 //Función para registrar una subasta
-function bid() external payable {
-    require(block.timestamp >= startTime && block.timestamp <= stopTime, "Bid is not active");
+function bid() external payable auctionActive {
+    //require(block.timestamp >= startTime && block.timestamp <= stopTime, "Bid is not active");
     require(msg.value > 0, "You must send some ETH");
     require(msg.value * 100 >= highestBid * 105, "Bid must be at least 5% higher");
 
@@ -64,7 +73,7 @@ function bid() external payable {
     highestBidder = msg.sender;
 
     //Lo agregamos al historial de oferentes para consulta
-    bidHistory.push(BidInfo(msg.sender, msg.value));
+    bidHistory.push(BidInfo(msg.sender, msg.value, block.timestamp));
 }
 
 //Función para leer apuestas por contrato
@@ -100,6 +109,31 @@ function refundAll() external payable onlyOwner auctionFinalized {
     emit AuctionEnded();
 }
 
+function partialRefund() external auctionActive {
+    uint bidderAcummulatedBids = bids[msg.sender];
+    uint bidderLastBid = 0;
+    uint lastBidTime = 0;
+
+for (uint i = 0; i < bidHistory.length; ++i) {
+        if (bidHistory[i].bidder == msg.sender && bidHistory[i].time > lastBidTime) {
+            bidderLastBid = bidHistory[i].amount;
+            lastBidTime = bidHistory[i].time;
+        }
+    }
+
+ uint bidderRefund = bidderAcummulatedBids - bidderLastBid;
+
+ require(bidderRefund > 0, "No refundable amount found");
+
+ (bool sent, ) = payable(msg.sender).call{value: bidderRefund}("");
+require(sent, "Refund failed");
+
+   // Actualización del mapping (para evitar múltiples retiros)
+    bids[msg.sender] = bidderLastBid;
+
+}
+
+//Funcion para saber la hora actual, solo para testeo
 function getTimeNow() external view returns (uint) {
     return block.timestamp;
 }

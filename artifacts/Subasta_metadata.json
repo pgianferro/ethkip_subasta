@@ -61,6 +61,11 @@
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -139,6 +144,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "partialRefund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "refundAll",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -194,6 +206,11 @@
 							{
 								"internalType": "uint256",
 								"name": "amount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "time",
 								"type": "uint256"
 							}
 						],
@@ -260,11 +277,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0xf5e5c70d8909d847789eea996eb718ca836589324510d8d82327e664000f15b0",
+			"keccak256": "0x9ae2cf2901a6fdd0e0697b78d30c94243ccdf68cdf81d9c8051c0aa4a7656217",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bfabb8a743be77be217a92a5a6806567a45334484808c87e4415582603bb594a",
-				"dweb:/ipfs/QmdJmdjVFVFKQGrsJP7WfmiNxsTP9PBN6SvqHm7QiEYVbn"
+				"bzz-raw://8178059dfbc76a0fe8279fbf8cbec2391163648b6015fd61faca000126e92d44",
+				"dweb:/ipfs/Qmc1GYCmLZ7zKhEaLAj6p5qobproY1Av9rUkRno62fXcdM"
 			]
 		}
 	},
