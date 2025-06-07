@@ -110,9 +110,9 @@ function refundAll() external payable onlyOwner auctionFinalized {
 }
 
 function partialRefund() external auctionActive {
-    uint bidderAcummulatedBids = bids[msg.sender];
-    uint bidderLastBid = 0;
-    uint lastBidTime = 0;
+    uint256 bidderAcummulatedBids = bids[msg.sender];
+    uint256 bidderLastBid = 0;
+    uint256 lastBidTime = 0;
 
 for (uint i = 0; i < bidHistory.length; ++i) {
         if (bidHistory[i].bidder == msg.sender && bidHistory[i].time > lastBidTime) {
@@ -120,13 +120,13 @@ for (uint i = 0; i < bidHistory.length; ++i) {
             lastBidTime = bidHistory[i].time;
         }
     }
-
- uint bidderRefund = bidderAcummulatedBids - bidderLastBid;
-
- require(bidderRefund > 0, "No refundable amount found");
-
- (bool sent, ) = payable(msg.sender).call{value: bidderRefund}("");
-require(sent, "Refund failed");
+    
+    uint256 bidderRefund = bidderAcummulatedBids - bidderLastBid;
+    
+    require(bidderRefund > 0, "No refundable amount found");
+    
+    (bool sent, ) = payable(msg.sender).call{value: bidderRefund}("");
+    require(sent, "Refund failed");
 
    // Actualización del mapping (para evitar múltiples retiros)
     bids[msg.sender] = bidderLastBid;
