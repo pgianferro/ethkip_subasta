@@ -11,10 +11,59 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "AuctionEnded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "NewBid",
+				"type": "event"
+			},
+			{
 				"inputs": [],
 				"name": "bid",
 				"outputs": [],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "bidHistory",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -26,6 +75,126 @@
 					}
 				],
 				"name": "getBidOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "highestBid",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "highestBidder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refundAll",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "showCurrentWinner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "showFinalWinner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "showOffers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Subasta.BidInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stopTime",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -65,11 +234,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0xe988520ff756d519b371609b06bfc2ed8a3abda2c2c96877f0d29a7d85655b4b",
+			"keccak256": "0xfece68846de44124f83a70f1a6bf8d4b49b6ad68d45fe62e0f3f65ece805a12b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://098a8c8fcc49a290a609dc2eb63784f8aa90ee5d15e407c16e50a3f91baa18f3",
-				"dweb:/ipfs/QmXjFyzXyhsVhTWc3xx9ptxbrxCNpfRR6YXZk1t9biEs4J"
+				"bzz-raw://a64e080fde78432c5f942f9f936fdd809dc5af856bf616227e19423cd5cfe3ff",
+				"dweb:/ipfs/QmUbUFcMavao3QBLYhwyuhT2NEshvJws5C7jPB6ADYd9DB"
 			]
 		}
 	},
