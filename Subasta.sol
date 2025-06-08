@@ -14,8 +14,8 @@ mapping(address => uint) bids;
 //Variables de estado para el listado de oferentes y ofertas
 struct BidInfo {
     address bidder;
-    uint amount;
-    uint time;
+    uint256 amount;
+    uint256 time;
     bool refunded;
 }
 
@@ -140,7 +140,7 @@ function showFinalWinner() external view auctionFinalized returns (address, uint
 //Función para devolver las ofertas a los no ganadores
 function refundAll() external payable onlyOwner auctionFinalized { 
     for(uint i = 0; i < bidHistory.length; ++i) {
-        if(bidHistory[i].bidder != highestBidder && bidHistory[i].refunded == false) {
+        if(bidHistory[i].amount != highestBid && bidHistory[i].refunded == false) {
             uint refundAmount = (bidHistory[i].amount) * 98 / 100;
             //payable(bidHistory[i].bidder).transfer(refundAmount);
             (bool sent, ) = payable(bidHistory[i].bidder).call{value: refundAmount}("");
@@ -151,7 +151,6 @@ function refundAll() external payable onlyOwner auctionFinalized {
     }
     emit AuctionEnded();
 }
-
 
 //Funcion para saber la hora actual, solo para testeo
 function getTimeNow() external view returns (uint) {
