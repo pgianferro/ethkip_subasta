@@ -287,11 +287,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0x86cf95ad754947ecc71becd27e9e38ad3127746f131f279cb4f66db84a2b5843",
+			"keccak256": "0xf014753a21fe5a26f647833d2cc17bb56ce1580805d7369712b88bcb88410661",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1b6f2ecaf0eb3f3a898a7bbc46e81466d9eb087fd16b36dcbfe05609f761fdcf",
-				"dweb:/ipfs/QmfXVaxp4zRKaWyFncKWHDm7KNkGmd9mZp3Zk8p8sU4EYy"
+				"bzz-raw://155584d7eaeae48fc6a9c6fc1a228c86db568e72797583b121fe2ac0d3b8f88d",
+				"dweb:/ipfs/QmQeXS2iPFhCNp4XRo7U2tTQQAdkv3w5h2oXR5obmnbZ1r"
 			]
 		}
 	},
