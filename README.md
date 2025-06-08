@@ -12,11 +12,8 @@ Este proyecto implementa un contrato inteligente para una subasta simple en Soli
 
 🚀 Contrato Desplegado
 	•	Red: Sepolia
-	•	Dirección del contrato:
-0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-(Reemplazar con la dirección real)
-	•	Código verificado en:
-Sepolia Etherscan
+	•	Dirección del contrato: https://sepolia.etherscan.io/address/0x694dcED79ceE409f88B839991C944C5763FE482e#code 
+	•	Código verificado en: Sepolia Etherscan
 
 ⸻
 
