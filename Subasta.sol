@@ -16,6 +16,7 @@ struct BidInfo {
     address bidder;
     uint amount;
     uint time;
+    bool refunded;
 }
 
 //Eventos
@@ -25,10 +26,12 @@ event AuctionEnded();
 //Array para contener a los oferentes
 BidInfo[] public bidHistory;
 
+//Array
+
 //Constructor para inicializar las variables de estado
 constructor() {
     startTime = block.timestamp;
-    stopTime = startTime + 1 minutes;
+    stopTime = startTime + 5 minutes;
     owner = payable(msg.sender);
 }
 
@@ -73,7 +76,7 @@ function bid() external payable auctionActive {
     highestBidder = msg.sender;
 
     //Lo agregamos al historial de oferentes para consulta
-    bidHistory.push(BidInfo(msg.sender, msg.value, block.timestamp));
+    bidHistory.push(BidInfo(msg.sender, msg.value, block.timestamp, false));
 }
 
 //Función para leer apuestas por contrato
@@ -87,8 +90,46 @@ function showCurrentWinner() external view returns (address, uint) {
 }
 
 //Mostrar oferentes y sus ofertas
-function showOffers() external view returns (BidInfo[] memory) {
+function showBids() external view returns (BidInfo[] memory) {
     return bidHistory;
+}
+
+
+//Función para devoluciones parciales
+function partialRefund() external auctionActive {
+    uint256 count = 0;
+
+    // 1. Contar cuántas ofertas activas (no reembolsadas) tiene este bidder
+    for (uint i = 0; i < bidHistory.length; i++) {
+        if (bidHistory[i].bidder == msg.sender && !bidHistory[i].refunded) {
+            count++;
+        }
+    }
+
+    require(count > 1, "No refundable bids found");
+
+    uint256 counter = 0;
+    uint256 refundAmount = 0;
+
+    // 2. Volver a recorrer el array, marcar como refunded todas menos la última, y acumular montos
+    for (uint i = 0; i < bidHistory.length; i++) {
+        if (bidHistory[i].bidder == msg.sender && !bidHistory[i].refunded) {
+            counter++;
+            if (counter < count) {
+                refundAmount += bidHistory[i].amount;
+                bidHistory[i].refunded = true;
+            }
+        }
+    }
+
+    require(refundAmount > 0, "Nothing to refund");
+
+    // 3. Transferir el monto acumulado
+    (bool sent, ) = payable(msg.sender).call{value: refundAmount}("");
+    require(sent, "Refund failed");
+
+    // 4. Restar del total acumulado del mapping
+    bids[msg.sender] -= refundAmount;
 }
 
 //Función para mostrar ganador final
@@ -99,39 +140,18 @@ function showFinalWinner() external view auctionFinalized returns (address, uint
 //Función para devolver las ofertas a los no ganadores
 function refundAll() external payable onlyOwner auctionFinalized { 
     for(uint i = 0; i < bidHistory.length; ++i) {
-        if(bidHistory[i].bidder != highestBidder) {
+        if(bidHistory[i].bidder != highestBidder && bidHistory[i].refunded == false) {
             uint refundAmount = (bidHistory[i].amount) * 98 / 100;
             //payable(bidHistory[i].bidder).transfer(refundAmount);
             (bool sent, ) = payable(bidHistory[i].bidder).call{value: refundAmount}("");
             require(sent, "Refund failed");
+            
+            bidHistory[i].refunded = true;
         }
     }
     emit AuctionEnded();
 }
 
-function partialRefund() external auctionActive {
-    uint256 bidderAcummulatedBids = bids[msg.sender];
-    uint256 bidderLastBid = 0;
-    uint256 lastBidTime = 0;
-
-for (uint i = 0; i < bidHistory.length; ++i) {
-        if (bidHistory[i].bidder == msg.sender && bidHistory[i].time > lastBidTime) {
-            bidderLastBid = bidHistory[i].amount;
-            lastBidTime = bidHistory[i].time;
-        }
-    }
-    
-    uint256 bidderRefund = bidderAcummulatedBids - bidderLastBid;
-    
-    require(bidderRefund > 0, "No refundable amount found");
-    
-    (bool sent, ) = payable(msg.sender).call{value: bidderRefund}("");
-    require(sent, "Refund failed");
-
-   // Actualización del mapping (para evitar múltiples retiros)
-    bids[msg.sender] = bidderLastBid;
-
-}
 
 //Funcion para saber la hora actual, solo para testeo
 function getTimeNow() external view returns (uint) {

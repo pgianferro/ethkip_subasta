@@ -66,6 +66,11 @@
 						"internalType": "uint256",
 						"name": "time",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "refunded",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -158,6 +163,41 @@
 			},
 			{
 				"inputs": [],
+				"name": "showBids",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "time",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "refunded",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Subasta.BidInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "showCurrentWinner",
 				"outputs": [
 					{
@@ -187,36 +227,6 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "showOffers",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "bidder",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "amount",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "time",
-								"type": "uint256"
-							}
-						],
-						"internalType": "struct Subasta.BidInfo[]",
-						"name": "",
-						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -277,11 +287,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0xcc290dafabdf648cd347a50d02963827bb7a11974327176135d632136f4f0db9",
+			"keccak256": "0xeb7dc2ca8208a2117fd9fe3e5a1949083c875679db047356fed7cc759a7b94b5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a7c7d29f95c00cf12e80d70f99cf77c9db7736f6286bd986f37dcbe8365e7080",
-				"dweb:/ipfs/QmNPS1ZvkLw9SHcrqJ3GH7RobFhbKh6bmEbh2rGHrQiZDw"
+				"bzz-raw://18fb3cc4dab0ad60173a97bf87909bf0229e97dfbdfaf208e00630204f1e6b89",
+				"dweb:/ipfs/QmdVTCaMKzPdFRuvDRnnJwK2d371JZALCh6BEk41VAWavk"
 			]
 		}
 	},
