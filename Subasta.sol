@@ -3,6 +3,7 @@ pragma solidity >0.8.0;
 
 contract Subasta {
 
+
 //VARIABLES DE ESTADO
 uint public highestBid;
 address public highestBidder;
