@@ -1,7 +1,6 @@
 # 🧪 Battery of Manual Tests – `Subasta.sol`
 
 Este archivo documenta la ejecución y resultados de las pruebas manuales del contrato inteligente `Subasta`, desplegado en la red Sepolia. Se utilizan tres cuentas:
-🧪 Nota: Las pruebas se realizaron con `stopTime = startTime + 5 minutes` para facilitar la verificación temporal. En producción, `stopTime` se define como `startTime + 7 days`.
 
 ## Cuentas
 
@@ -21,6 +20,8 @@ Este archivo documenta la ejecución y resultados de las pruebas manuales del co
 - ✅ `paused = false`
 - ✅ `highestBid = 0`
 - ✅ `bidHistory.length = 0`
+
+🧪 Nota: Las pruebas se realizaron con `stopTime = startTime + 5 minutes` para facilitar la verificación temporal. En producción, `stopTime` se define como `startTime + 7 days`.
 
 ---
 
