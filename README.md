@@ -23,18 +23,20 @@ Este proyecto implementa un contrato inteligente de subastas en Solidity con fun
 
 ## 🔬 Batería de tests ejecutada
 
-| # | Escenario                                                              | Resultado |
-|--:|------------------------------------------------------------------------|:---------:|
-| 1 | Deploy exitoso                                                         | ✅        |
-| 2 | Oferta inicial válida                                                  | ✅        |
-| 3 | Oferta menor al 5% rechazada                                           | ✅        |
-| 4 | Oferta mayor al 5% aceptada                                            | ✅        |
-| 5 | Extensión de tiempo dentro de los últimos 10 minutos                   | ✅        |
-| 6 | Múltiples ofertas registradas                                          | ✅        |
-| 7 | Reembolso parcial correcto con comisión                               | ✅        |
-| 8 | Subasta finalizada y `refundAll()` ejecutado por el owner             | ✅        |
-| 9 | Verificación de solo última oferta del ganador sin reembolsar         | ✅        |
-|10 | Retiro de emergencia ejecutado al pausar el contrato                  | ✅        |
+## ✔️ Escenarios de Prueba Completados
+
+| #  | Escenario                                                              | Resultado |
+|----|------------------------------------------------------------------------|:---------:|
+| 1  | Deploy exitoso                                                         | ✅        |
+| 2  | Bidder A realiza oferta inicial (1 ETH)                                | ✅        |
+| 3  | Bidder B realiza oferta válida superior (2 ETH)                        | ✅        |
+| 4  | Bidder A ofrece 5 ETH (se actualiza highestBid y se extiende el tiempo) | ✅      |
+| 5  | showFinalWinner antes del cierre revierte correctamente                | ✅        |
+| 6  | Bidder A ejecuta `partialRefund()` correctamente                      | ✅        |
+| 7  | showFinalWinner luego del cierre devuelve el ganador                   | ✅        |
+| 8  | `refundAll()` ejecutado solo por el owner, reembolsos correctos        | ✅        |
+| 9  | Solo la última oferta del ganador queda sin reembolso                  | ✅        |
+| 10 | `emergencyWithdraw()` fallido sin pause, exitoso tras `setPaused(true)` | ✅       |
 
 ---
 
