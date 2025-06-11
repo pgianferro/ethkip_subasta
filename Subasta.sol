@@ -48,7 +48,7 @@ BidInfo[] public bidHistory;
 /// The contract deployer is set as the owner.
 constructor() {
     startTime = block.timestamp;
-    stopTime = startTime + 5 minutes;
+    stopTime = startTime + 7 days;
     owner = payable(msg.sender);
 }
 
