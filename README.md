@@ -16,7 +16,7 @@ Este proyecto implementa un contrato inteligente de subastas en Solidity con fun
 ## 🚀 Contrato desplegado
 
 - **Red**: Sepolia  
-- **Dirección del contrato**: [0x...](https://sepolia.etherscan.io/address/0xNUEVADIRECCION#code)  
+- **Dirección del contrato**: https://sepolia.etherscan.io/address/0x541f6fb52cb45c124651db0a6794353e912596b2#code 
 - **Código verificado**: ✅ en Etherscan
 
 ---
@@ -53,11 +53,3 @@ Este proyecto implementa un contrato inteligente de subastas en Solidity con fun
 - Sin almacenamiento individual de balances; se trabaja con acumulados y ajustes tras reembolsos.
 
 ---
-
-## 📦 Entrega oficial
-
-🧾 **Trabajo Final Módulo 2**  
-🔗 Contrato inteligente desplegado y verificado en Sepolia:  
-📄 [0xNUEVADIRECCION](https://sepolia.etherscan.io/address/0xNUEVADIRECCION#code)  
-💻 Código fuente abierto y documentado en GitHub:  
-📁 [https://github.com/pgianferro/ethkip_subasta](https://github.com/pgianferro/ethkip_subasta)
