@@ -4,7 +4,7 @@ Este archivo documenta las correcciones sugeridas por el profesor para mejorar l
 
 ---
 
-## 🧠 Comentarios del Profesor
+## Correcciones sugeridas
 
 A tener en cuenta para mejorar nota a más de 70:
 
@@ -24,17 +24,18 @@ A tener en cuenta para mejorar nota a más de 70:
 
 ### 1. Withdraw Partial
 
-🔹 La función `partialRefund()` ya existía y cumple con el requisito.
+La función `partialRefund()` ya existía y cumple con el requisito.
 
 Permite a cualquier oferente reclamar el reembolso del 98% de todas sus ofertas anteriores a la última, manteniendo su oferta más reciente como válida en la subasta.
 
-🧪 Se testearon exitosamente los siguientes escenarios:
+Se testearon exitosamente los siguientes escenarios:
 
 - Reembolsos parciales del actual `highestBidder`.
 - Reembolsos anteriores a una bid ganadora.
 - Protección ante múltiples ejecuciones por el mismo usuario.
+- Para más información verificar el punto 6 del archivo test_battery.md
 
-📌 Función ubicada en el contrato en la línea **132**.
+Función ubicada en el contrato en la línea **147**.
 
 ---
 
@@ -54,15 +55,15 @@ Permite a cualquier oferente reclamar el reembolso del 98% de todas sus ofertas 
 | partialRefund()       | Refund failed                                      | Refund failed          |
 | refundAll()           | Refund failed                                      | Refund failed          |
 
-⚠️ Algunas expresiones como `"Refund failed"` ya eran suficientemente cortas y se mantuvieron.
+Algunas expresiones como `"Refund failed"` ya eran suficientemente cortas y se mantuvieron.
 
 ---
 
 ### 3. Ubicación de los `require`
 
-🧾 Se revisaron todas las funciones del contrato y se garantizó que los `require` estén posicionados al principio de cada bloque funcional, justo después de la aplicación de modifiers.
+Se revisaron todas las funciones del contrato y se garantizó que los `require` estén posicionados al principio de cada bloque funcional, justo después de la aplicación de modifiers.
 
-🎯 No hay `require` que pueda moverse más arriba sin romper la lógica del contrato. Esto reduce consumo de gas en llamadas inválidas y sigue las mejores prácticas de Solidity.
+No hay `require` que pueda moverse más arriba sin romper la lógica del contrato. Esto reduce consumo de gas en llamadas inválidas y sigue las mejores prácticas de Solidity.
 
 ---
 
@@ -94,9 +95,9 @@ Se revisaron todas las funciones que acceden a variables de estado para verifica
 | `partialRefund()` | `bidHistory`           | Lectura en bucle    | ✅ Correcto    | `.refunded` se modifica una sola vez por entrada. |
 | `refundAll()`     | `bidHistory`           | Lectura + escritura | ✅ Correcto    | `.refunded` y `bids[...]` se modifican una vez por entrada. |
 
-🔎 Además, en funciones con bucles se introdujo la variable local `len` para evitar calcular la longitud del array `bidHistory` en cada iteración (ver sección anterior).
+Además, en funciones con bucles se introdujo la variable local `len` para evitar calcular la longitud del array `bidHistory` en cada iteración (ver sección anterior).
 
-📌 Conclusión: No se encontraron accesos redundantes a variables de estado. Todas las escrituras se hacen de manera única por ciclo o al final de la función, cumpliendo con la sugerencia del profesor.
+Conclusión: No se encontraron accesos redundantes a variables de estado. Todas las escrituras se hacen de manera única por ciclo o al final de la función, cumpliendo con la sugerencia del profesor.
 
 ---
 
