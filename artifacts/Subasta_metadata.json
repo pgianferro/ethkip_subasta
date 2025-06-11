@@ -77,6 +77,13 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "emergencyWithdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -156,9 +163,35 @@
 			},
 			{
 				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "refundAll",
 				"outputs": [],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_status",
+						"type": "bool"
+					}
+				],
+				"name": "setPaused",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -260,13 +293,115 @@
 			}
 		],
 		"devdoc": {
+			"events": {
+				"NewBid(address,uint256)": {
+					"params": {
+						"amount": "Amount of the bid",
+						"bidder": "Address of the bidder"
+					}
+				}
+			},
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"bid()": {
+					"details": "Extends the auction by 10 minutes if the bid is made within the last 10 minutes. Requirements: - The contract must not be paused. - The bid must be at least 5% higher than the current highest bid. - The value sent must be greater than 0."
+				},
+				"emergencyWithdraw()": {
+					"details": "Only callable by the owner and only when the contract is paused. Reverts if there is no ETH balance to withdraw."
+				},
+				"getBidOf(address)": {
+					"params": {
+						"bidder": "The address of the bidder."
+					},
+					"returns": {
+						"_0": "The total amount bid by the specified address."
+					}
+				},
+				"getTimeNow()": {
+					"details": "Used for testing purposes only.",
+					"returns": {
+						"_0": "The current block timestamp in seconds."
+					}
+				},
+				"partialRefund()": {
+					"details": "Only available during the active auction and if the contract is not paused. Iterates over bid history, marks refunded bids, and sends accumulated refund."
+				},
+				"refundAll()": {
+					"details": "Only callable by the owner, and only after the auction has finalized. The contract must not be paused. Iterates through bid history, sends refund to eligible bidders, and marks bids as refunded."
+				},
+				"setPaused(bool)": {
+					"details": "Only callable by the owner.",
+					"params": {
+						"_status": "Set to true to pause the contract, or false to resume."
+					}
+				},
+				"showBids()": {
+					"returns": {
+						"_0": "An array of BidInfo structs containing details of each bid."
+					}
+				},
+				"showCurrentWinner()": {
+					"returns": {
+						"_0": "The highest bidder's address and their bid amount."
+					}
+				},
+				"showFinalWinner()": {
+					"details": "Can only be called after the auction period has finished.",
+					"returns": {
+						"_0": "The address of the highest bidder and the final bid amount."
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"AuctionEnded()": {
+					"notice": "Emitted when the auction ends and refunds are issued"
+				},
+				"NewBid(address,uint256)": {
+					"notice": "Emitted when a new bid is placed"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"bid()": {
+					"notice": "Places a new bid during the active auction period."
+				},
+				"bidHistory(uint256)": {
+					"notice": "Stores the history of all bids placed during the auction"
+				},
+				"constructor": {
+					"notice": "Initializes the auction with default start and stop times. The auction starts immediately and lasts for 5 minutes. The contract deployer is set as the owner."
+				},
+				"emergencyWithdraw()": {
+					"notice": "Withdraws all ETH from the contract in case of emergency."
+				},
+				"getBidOf(address)": {
+					"notice": "Returns the total amount bid by a given address."
+				},
+				"getTimeNow()": {
+					"notice": "Returns the current block timestamp."
+				},
+				"partialRefund()": {
+					"notice": "Allows bidders to request a partial refund of 98% of all but their latest bid."
+				},
+				"refundAll()": {
+					"notice": "Refunds 98% of all bids (except the winning one) after the auction ends."
+				},
+				"setPaused(bool)": {
+					"notice": "Enables or disables the paused state of the contract."
+				},
+				"showBids()": {
+					"notice": "Returns the full history of all bids placed in the auction."
+				},
+				"showCurrentWinner()": {
+					"notice": "Returns the address and amount of the current highest bidder."
+				},
+				"showFinalWinner()": {
+					"notice": "Returns the final winner of the auction after it has ended."
+				}
+			},
 			"version": 1
 		}
 	},
@@ -287,11 +422,11 @@
 	},
 	"sources": {
 		"Subasta.sol": {
-			"keccak256": "0x830c9f29c1ffe03db57bb53211e0d79986c109b781910b7de51f6a2d74f5d5f2",
+			"keccak256": "0x4c31e8410132887e5560c9303eaf4213e5f17241651164c50ca0b6c49860ffa1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fd4210e9826a30bd7db76ce0c21000e38358337f56d60873159830a12b12ea66",
-				"dweb:/ipfs/QmWDixPPAboZ6siHFfHJ3RQ4hCASmp7S7o6Cc7Kyv1agmc"
+				"bzz-raw://d264be2b957436b44970fb3d912315be605b5eabc2deddf5dca9659f4d8ae97b",
+				"dweb:/ipfs/QmPdfPLB9RrcF5y34GLqQv9dX16W8hxj8TG4ct1ZzYeoRB"
 			]
 		}
 	},
